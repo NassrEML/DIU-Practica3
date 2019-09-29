@@ -57,9 +57,11 @@ public class Lienzo extends JPanel {
     
     public void setColorDeFondo(Color color){
         this.colorFondo = color;
+        repaint();
     }
     
     public void setColorDePincel(Color color){
         this.colorPincel = color;
+        repaint();
  } 
 }

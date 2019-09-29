@@ -40,8 +40,8 @@ public class practica3 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        colorDeFondo = new javax.swing.JComboBox<String>();
-        colorDelPincel = new javax.swing.JComboBox<String>();
+        colorDeFondo = new javax.swing.JComboBox<>();
+        colorDelPincel = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
@@ -61,14 +61,14 @@ public class practica3 extends javax.swing.JFrame {
 
         jLabel4.setText("Color del pincel:");
 
-        colorDeFondo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Rojo", "Verde", "Azul" }));
+        colorDeFondo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rojo", "Verde", "Rosa" }));
         colorDeFondo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorDeFondoActionPerformed(evt);
             }
         });
 
-        colorDelPincel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Azul", "Naranja", "Negro" }));
+        colorDelPincel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Naranja", "Negro" }));
         colorDelPincel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorDelPincelActionPerformed(evt);
@@ -213,8 +213,8 @@ public class practica3 extends javax.swing.JFrame {
         if(colorDeFondo.getSelectedItem().equals("Verde")){
             lienzo.setColorDeFondo(Color.GREEN);
         }
-        if(colorDeFondo.getSelectedItem().equals("Azul")){
-            lienzo.setColorDeFondo(Color.BLUE);
+        if(colorDeFondo.getSelectedItem().equals("Rosa")){
+            lienzo.setColorDeFondo(Color.PINK);
         }
         
     }//GEN-LAST:event_colorDeFondoActionPerformed
