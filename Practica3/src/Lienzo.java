@@ -25,6 +25,7 @@ public class Lienzo extends JPanel {
         
     private Color colorPincel;
     private Color colorFondo;
+    private int grosor;
     
     public Lienzo(){
         puntos = new LinkedList<>();
@@ -42,11 +43,13 @@ public class Lienzo extends JPanel {
         dibujaPuntos(g2d, puntos);
     }
     
-    
+    public void fijarGrosor(int grosor){
+        this.grosor = grosor;
+    }
     
     private void dibujaPuntos(Graphics2D g2d, LinkedList<Point2D> listaDePuntos){
         listaDePuntos.forEach((punto) -> {
-            g2d.fillOval((int) punto.getX(), (int) punto.getY(), 10, 10);
+            g2d.fillOval((int) punto.getX(), (int) punto.getY(), this.grosor, this.grosor);
         });
     }
 
