@@ -11,6 +11,8 @@ import java.awt.Point;
 /**
  *
  * @author nassr
+ * @author yusef
+ * 
  */
 public class practica3 extends javax.swing.JFrame {
 
@@ -38,8 +40,8 @@ public class practica3 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        colorDeFondo = new javax.swing.JComboBox<>();
-        colorDelPincel = new javax.swing.JComboBox<>();
+        colorDeFondo = new javax.swing.JComboBox<String>();
+        colorDelPincel = new javax.swing.JComboBox<String>();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
@@ -59,9 +61,19 @@ public class practica3 extends javax.swing.JFrame {
 
         jLabel4.setText("Color del pincel:");
 
-        colorDeFondo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        colorDeFondo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Rojo", "Verde", "Azul" }));
+        colorDeFondo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                colorDeFondoActionPerformed(evt);
+            }
+        });
 
-        colorDelPincel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        colorDelPincel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Azul", "Naranja", "Negro" }));
+        colorDelPincel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                colorDelPincelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,9 +91,9 @@ public class practica3 extends javax.swing.JFrame {
                             .addComponent(jLabel3))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(colorDelPincel, 0, 70, Short.MAX_VALUE)
-                    .addComponent(colorDeFondo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(colorDeFondo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(colorDelPincel, 0, 98, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,10 +138,9 @@ public class practica3 extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
-        lienzo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lienzo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 lienzoMouseMoved(evt);
@@ -140,7 +151,7 @@ public class practica3 extends javax.swing.JFrame {
         lienzo.setLayout(lienzoLayout);
         lienzoLayout.setHorizontalGroup(
             lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 564, Short.MAX_VALUE)
         );
         lienzoLayout.setVerticalGroup(
             lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,19 +163,17 @@ public class practica3 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(titulo)
-                        .addGap(0, 262, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(lienzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titulo)
+                .addGap(230, 230, 230))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,6 +202,37 @@ public class practica3 extends javax.swing.JFrame {
         lienzo.pintarEnLienzo(new Point(evt.getX(), evt.getY()));
         repaint();
     }//GEN-LAST:event_lienzoMouseMoved
+
+    private void colorDeFondoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorDeFondoActionPerformed
+        // TODO add your handling code here:
+ 
+                
+        if(colorDeFondo.getSelectedItem().equals("Rojo")){
+            lienzo.setColorDeFondo(Color.RED);
+        }
+        if(colorDeFondo.getSelectedItem().equals("Verde")){
+            lienzo.setColorDeFondo(Color.GREEN);
+        }
+        if(colorDeFondo.getSelectedItem().equals("Azul")){
+            lienzo.setColorDeFondo(Color.BLUE);
+        }
+        
+    }//GEN-LAST:event_colorDeFondoActionPerformed
+
+    private void colorDelPincelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorDelPincelActionPerformed
+        // TODO add your handling code here:
+        
+        if(colorDelPincel.getSelectedItem().equals("Azul")){
+            lienzo.setColorDePincel(Color.BLUE);
+        }
+        if(colorDelPincel.getSelectedItem().equals("Naranja")){
+            lienzo.setColorDePincel(Color.ORANGE);
+        }
+        if(colorDelPincel.getSelectedItem().equals("Negro")){
+            lienzo.setColorDePincel(Color.BLACK);
+        }
+        
+    }//GEN-LAST:event_colorDelPincelActionPerformed
 
     /**
      * @param args the command line arguments
