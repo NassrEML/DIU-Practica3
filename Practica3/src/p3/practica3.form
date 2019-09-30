@@ -149,7 +149,7 @@
               <StringArray count="3">
                 <StringItem index="0" value="Rojo"/>
                 <StringItem index="1" value="Verde"/>
-                <StringItem index="2" value="Azul"/>
+                <StringItem index="2" value="Rosa"/>
               </StringArray>
             </Property>
           </Properties>

@@ -60,7 +60,7 @@ public class practica3 extends javax.swing.JFrame {
 
         jLabel4.setText("Color del pincel:");
 
-        colorDeFondo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Rojo", "Verde", "Azul" }));
+        colorDeFondo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Rojo", "Verde", "Rosa" }));
         colorDeFondo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorDeFondoActionPerformed(evt);
@@ -188,8 +188,8 @@ public class practica3 extends javax.swing.JFrame {
         if(colorDeFondo.getSelectedItem().equals("Verde")){
             lienzo.setColorDeFondo(Color.GREEN);
         }
-        if(colorDeFondo.getSelectedItem().equals("Azul")){
-            lienzo.setColorDeFondo(Color.BLUE);
+        if(colorDeFondo.getSelectedItem().equals("Rosa")){
+            lienzo.setColorDeFondo(Color.PINK);
         }
         
     }//GEN-LAST:event_colorDeFondoActionPerformed
