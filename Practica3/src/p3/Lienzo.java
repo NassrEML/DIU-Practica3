@@ -16,20 +16,18 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author nassr
- * @author yusef
+ * @author Nassr Eddine Moussati Lamhamdi
+ * @author Yousuf Boutahar El Maachi
  * 
  */
 public class Lienzo extends JPanel {
    
-    private LinkedList<Point2D> puntos;
-    
+    private LinkedList<Point2D> puntos = new LinkedList<>();;
         
     private Color colorPincel;
     private Color colorFondo;
     
     public Lienzo(){
-        puntos = new LinkedList<>();
         this.colorPincel = Color.BLUE;
         this.colorFondo = Color.RED;
     }
@@ -43,7 +41,6 @@ public class Lienzo extends JPanel {
         g2d.setColor(colorPincel);
         drawPoints(g2d, puntos);
     }
-    
     
     
     private void drawPoints(Graphics2D g2d, LinkedList<Point2D> listaDePuntos){
@@ -65,9 +62,10 @@ public class Lienzo extends JPanel {
     public void setColorDePincel(Color color){
         this.colorPincel = color;
         repaint();
- }
+    }
     
     public void CleanPoints(){
         puntos.clear();
+        repaint();
     }
 }
