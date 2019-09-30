@@ -4,16 +4,13 @@ package p3;
 import java.awt.Color;
 import java.awt.Point;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
- * @author nassr
- * @author yusef
+ * @author Nassr Eddine Moussati Lamhamdi
+ * @author Yousuf Boutahar El Maachi
+ * 
+ * @version 30/09/2019
  * 
  */
 public class practica3 extends javax.swing.JFrame {
@@ -242,10 +239,8 @@ public class practica3 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new practica3().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new practica3().setVisible(true);
         });
         
     }
