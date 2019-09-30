@@ -1,3 +1,5 @@
+package p3;
+
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -25,7 +27,6 @@ public class Lienzo extends JPanel {
         
     private Color colorPincel;
     private Color colorFondo;
-    private int grosor;
     
     public Lienzo(){
         puntos = new LinkedList<>();
@@ -40,20 +41,18 @@ public class Lienzo extends JPanel {
         this.setBackground(colorFondo);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(colorPincel);
-        dibujaPuntos(g2d, puntos);
+        drawPoints(g2d, puntos);
     }
     
-    public void fijarGrosor(int grosor){
-        this.grosor = grosor;
-    }
     
-    private void dibujaPuntos(Graphics2D g2d, LinkedList<Point2D> listaDePuntos){
+    
+    private void drawPoints(Graphics2D g2d, LinkedList<Point2D> listaDePuntos){
         listaDePuntos.forEach((punto) -> {
-            g2d.fillOval((int) punto.getX(), (int) punto.getY(), this.grosor, this.grosor);
+            g2d.fillOval((int) punto.getX(), (int) punto.getY(), 10, 10);
         });
     }
 
-    public void pintarEnLienzo(Point2D punto){
+    public void paint(Point2D punto){
         puntos.add(punto);
         if (puntos.size() > 5) puntos.removeFirst();
     }
@@ -66,5 +65,9 @@ public class Lienzo extends JPanel {
     public void setColorDePincel(Color color){
         this.colorPincel = color;
         repaint();
- } 
+ }
+    
+    public void CleanPoints(){
+        puntos.clear();
+    }
 }
